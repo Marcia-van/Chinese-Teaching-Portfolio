@@ -1,0 +1,491 @@
+/* --- COLORS & CONSTANTS --- */
+:root {
+  --navy: #4A70A9;         /* 主色：深蓝色 */
+  --navy-light: #8FABD4;   /* 次要色：淡蓝色 */
+  --beige: #EFECE3;        /* 背景色：米色 */
+  --beige-dark: #DEDAC8;   /* 强调背景 */
+  --text-dark: #000000;    /* 文字：纯黑，确保清晰度 */
+  --text-muted: #333333;   /* 次要文字 */
+  --white: #ffffff;
+  --accent: #d4af37;       /* 保持金色点缀 */
+}
+
+/* --- GLOBAL STYLES --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  line-height: 1.7; /* 增加行高提升阅读感 */
+  color: var(--text-dark);
+  background-color: var(--white);
+  scroll-behavior: smooth;
+  font-size: 23px; /* 全局基础字号提升 */
+}
+
+.container {
+  max-width: 1200px; /* 稍微加宽容器 */
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 6rem 0; /* 增加间距感 */
+}
+
+.bg-light {
+  background-color: #fcfcfc;
+}
+
+.bg-navy {
+  background-color: var(--navy);
+  color: var(--white);
+}
+
+.text-light {
+  color: var(--white) !important;
+}
+
+.section-title {
+  font-size: 2.8rem; /* 标题加粗加大 */
+  margin-bottom: 1.5rem;
+  color: var(--navy);
+  text-align: center;
+  font-weight: 800;
+}
+
+.intro-line {
+  text-align: center;
+  font-size: 1.4rem; /* 加大引言字号 */
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+}
+
+/* 针对您提到的段落进行的优化 */
+.section-description {
+  text-align: center;
+  max-width: 850px;       /* 稍微收窄宽度，增加视觉重心 */
+  margin: 0 auto 5rem;    /* 增加底部间距，从 4rem 提升到 5rem，拉开与步骤的距离 */
+  font-size: 1.25rem;     /* 字号稍微调大 */
+  line-height: 1.8;       /* 增加行高，让文字不拥挤 */
+  color: inherit;         /* 继承父级颜色 */
+  opacity: 0.9;           /* 稍微降低透明度，使其视觉上不如标题那么“重” */
+  font-weight: 400;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+  min-height: 95vh;
+  display: flex;
+  align-items: center;
+  background-color: var(--beige);
+  padding: 4rem 2rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.image-placeholder {
+  width: 100%;
+  aspect-ratio: 4/5;
+  background-color: var(--navy-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: var(--navy);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 25px 25px 0px var(--navy);
+}
+
+.main-heading {
+  font-size: 4rem;
+  line-height: 1.1;
+  color: var(--navy);
+  margin-bottom: 2rem;
+}
+
+.subheading {
+  font-size: 1.8rem;
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+}
+
+.supporting-text {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  color: var(--text-muted);
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.value-tag {
+  background: var(--navy);
+  color: var(--white);
+  padding: 0.6rem 1.4rem;
+  border-radius: 50px;
+  font-size: 1rem; /* 标签字体加大 */
+  font-weight: 600;
+}
+
+/* --- BUTTONS --- */
+.btn {
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 1.1rem;
+}
+
+.btn-primary {
+  background-color: var(--navy);
+  color: var(--white);
+  margin-right: 1rem;
+}
+
+.btn-primary:hover {
+  background-color: var(--navy-light);
+  color: var(--navy);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--navy);
+  border: 2px solid var(--navy);
+}
+
+.btn-secondary-light {
+  background-color: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+}
+
+/* --- CARDS (FIXING WHITESPACE) --- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 强制 2x2 布局防止大面积空白 */
+  gap: 2.5rem;
+}
+
+.card {
+  background: var(--white);
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: var(--navy-light);
+}
+
+.card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  color: var(--navy);
+  line-height: 1.4;
+}
+
+.card p {
+  font-size: 1.1rem; /* 提升卡片描述文字大小 */
+}
+
+/* --- DIAGNOSIS FLOW --- */
+.diagnosis-intro {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.highlight-text {
+  font-size: 2rem;
+  color: var(--navy);
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.flow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
+
+.flow-step {
+  text-align: center;
+  padding: 2rem;
+  background: var(--beige);
+  border-radius: 12px;
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  font-weight: 800;
+  font-size: 1.4rem;
+}
+
+.flow-step h3 {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.flow-step ul {
+  text-align: left;
+  list-style: none;
+  font-size: 1.1rem;
+}
+
+.flow-step ul li {
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.flow-step ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--navy);
+  font-weight: bold;
+}
+
+.gap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+
+/* 修改的部分：大幅提升对比度 */
+.gap-card {
+  background: var(--navy);      /* 背景改为深蓝色 */
+  color: var(--white);          /* 文字改为白色 */
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.gap-card h4 {
+    font-size: 1.5rem;          /* 标题加大 */
+    margin-bottom: 1rem;
+    color: var(--white);
+    font-weight: 800;
+}
+
+.gap-card p {
+    font-size: 1.15rem;         /* 描述文字加大 */
+    line-height: 1.6;
+    opacity: 0.9;               /* 轻微透明度增加层次感 */
+}
+
+.mini-case {
+  background: #ffffff;
+  padding: 3rem;
+  border-radius: 12px;
+  border: 2px solid var(--beige);
+  font-size: 1.15rem;
+}
+
+/* --- DESIGN PROCESS --- */
+.process-list {
+  max-width: 900px;
+  margin: 0 auto 4rem;
+}
+
+.process-item {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+  align-items: flex-start;
+}
+
+.process-item span {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--navy-light);
+  line-height: 1;
+}
+
+.process-item h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.logic-strip {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 2rem;
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.4rem;
+  border-radius: 12px;
+  border: 2px solid var(--navy-light);
+}
+
+/* --- SCENARIO SAMPLES --- */
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 改为 2 列以减少空白并增加卡片宽度 */
+  gap: 3rem;
+}
+
+.scenario-card {
+  background: var(--white);
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+
+.scenario-header {
+  background: var(--navy);
+  color: var(--white);
+  padding: 1.5rem 2rem;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.scenario-body {
+  padding: 2rem;
+}
+
+.scenario-body p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.keyword-box, .activity-box {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  background: var(--beige);
+  padding: 1rem;
+  border-radius: 8px;
+  color: var(--text-dark);
+}
+
+.scenario-btn {
+  width: 100%;
+  padding: 1.2rem;
+  background: var(--navy-light);
+  color: var(--navy);
+  border: none;
+  font-weight: 800;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background 0.3s;
+}
+
+.scenario-btn:hover {
+    background: var(--navy);
+    color: var(--white);
+}
+
+/* --- LESSON PACKAGE --- */
+.lesson-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 4rem;
+}
+
+.phrase-card {
+  padding: 1.8rem;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.phrase-chinese {
+  font-size: 1.5rem; /* 中文词句加大加粗 */
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.phrase-expansion {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+}
+
+/* --- OUTCOMES --- */
+.outcome-card {
+  background: rgba(255,255,255,0.1);
+  padding: 2.5rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+}
+
+.outcome-card h4 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.reflection-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.reflection-card {
+    background: rgba(0,0,0,0.2);
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.reflection-card h5 {
+    font-size: 1.2rem;
+    color: var(--navy-light);
+}
+
+.cta-block {
+  margin-top: 6rem;
+  background: var(--beige);
+  padding: 5rem 3rem;
+  border-radius: 20px;
+}
+
+.cta-block h3 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+}
+
+.contact-info {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* --- RESPONSIVENESS --- */
+@media (max-width: 1024px) {
+  .hero-grid, .lesson-grid, .flow-grid, .gap-grid, .reflection-grid, .card-grid, .scenario-grid {
+    grid-template-columns: 1fr;
+  }
+  .main-heading {
+    font-size: 3rem;
+  }
+}

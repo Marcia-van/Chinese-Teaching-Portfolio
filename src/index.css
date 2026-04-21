@@ -1,0 +1,61 @@
+/* 引入字体 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+    --bg-warm: #F9F7F2;
+    --navy: #16273a;
+    --navy-light: #2C4A6B;
+    --accent-gold: #B89E67;
+    --text-main: #1A2E44;
+    --text-secondary: #4A5568;
+}
+
+/* 基础样式复位 */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-warm) !important; /* 确保背景色生效 */
+    color: var(--text-main);
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+/* 布局辅助类 */
+.section-title { font-size: 2.5rem; line-height: 1.2; margin-bottom: 1.5rem; color: var(--navy); font-weight: 700; }
+
+/* 卡片组件 [cite: 8, 10] */
+.card {
+    background: white;
+    border: 1px solid rgba(26, 46, 68, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(26, 46, 68, 0.1);
+    border-color: var(--accent-gold);
+}
+
+/* 按钮组件 [cite: 12, 15] */
+.btn-primary { background-color: var(--navy); color: white; padding: 0.75rem 1.5rem; border-radius: 4px; display: inline-block; font-weight: 600; text-decoration: none; }
+.btn-secondary { border: 2px solid var(--navy); color: var(--navy); padding: 0.75rem 1.5rem; border-radius: 4px; display: inline-block; font-weight: 600; text-decoration: none; }
+
+/* 标签 [cite: 18] */
+.tag { background: rgba(184, 158, 103, 0.15); color: var(--accent-gold); padding: 0.25rem 0.75rem; border-radius: 99px; font-size: 0.875rem; font-weight: 600; text-transform: uppercase; }
+
+/* 短语卡片交互 [cite: 20, 21] */
+.phrase-card { cursor: pointer; border-left: 4px solid var(--accent-gold); margin-bottom: 10px; transition: border 0.3s ease; }
+.phrase-details { display: none; background: #f8fafc; border-top: 1px solid #edf2f7; padding: 1rem; }
+
+/* 导航栏 [cite: 22] */
+.sticky-nav { position: sticky; top: 0; z-index: 50; background: rgba(249, 247, 242, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(26, 46, 68, 0.1); }
+
+/* 动画效果 [cite: 24, 25] */
+.reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* 中文字体优化 [cite: 26] */
+.chinese-text { font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif; font-weight: 500; }
