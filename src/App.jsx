@@ -105,7 +105,7 @@ const App = () => {
 <div className="md:w-1/2 flex justify-center">
   <div className="relative w-72 h-72 md:w-[450px] md:h-[450px] rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl transform -rotate-2">
     <img
-      src="/assets/me1.png"
+      src="assets/me1.png"
       alt="Jing Zhang"
       className="w-full h-full object-cover"
       onError={(e) => {
